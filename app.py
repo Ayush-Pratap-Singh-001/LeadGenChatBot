@@ -12,7 +12,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
 # OpenRouter API setup
-API_KEY = "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"  # Replace with your actual API key
+API_KEY = ""  # Replace with your actual API key
 client = openai.OpenAI(
     api_key=API_KEY,
     base_url="https://openrouter.ai/api/v1"
