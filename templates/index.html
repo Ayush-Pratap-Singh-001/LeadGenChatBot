@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma Creations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/image.png') }}" alt="Forma Logo" class="logo-img">
+            <span>Forma Creations</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for handmade treasures...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Craftreat</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Jewelry</a>
+            <a href="#">Home Decor</a>
+            <a href="#">Apparel</a>
+            <a href="#">Contact</a>
+            <a href="#">Blog</a>
+            <a href="#" class="login-btn">Login</a>
+            <a href="#" class="cart-btn"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="banner-content">
+            <h1>Discover Handcrafted Treasures</h1>
+            <p>Unique, sustainable pieces made with love by artisans.</p>
+            <ul>
+                <li>Fresh New Stock</li>
+                <li>Fast Selling - New</li>
+                <li>Bulk Purchase Available</li>
+            </ul>
+            <button class="shop-now">Shop Now</button>
+        </div>
+        <img src="{{ url_for('static', filename='image.png') }}" alt="Handcrafted Products" class="banner-img">
+    </section>
+
+    <!-- Product Section -->
+    <section class="products">
+        <h2>Featured Handmade Creations</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="{{ url_for('static', filename='images/product1.png') }}" alt="Handmade Necklace">
+                <h3>Handmade Necklace</h3>
+                <p>Rs. 50.00</p>
+                <button class="quick-shop" data-product="Handmade Necklace" data-price="50">Quick Shop</button>
+            </div>
+            <div class="product-card">
+                <img src="{{ url_for('static', filename='images/product2.png') }}" alt="Hand-painted Pottery">
+                <h3>Hand-painted Pottery</h3>
+                <p>Rs. 80.00</p>
+                <button class="quick-shop" data-product="Hand-painted Pottery" data-price="80">Quick Shop</button>
+            </div>
+            <div class="product-card">
+                <img src="{{ url_for('static', filename='images/product3.png') }}" alt="Hand-knit Sweater">
+                <h3>Hand-knit Sweater</h3>
+                <p>Rs. 150.00</p>
+                <button class="quick-shop" data-product="Hand-knit Sweater" data-price="150">Quick Shop</button>
+            </div>
+            <div class="product-card">
+                <img src="{{ url_for('static', filename='images/product4.png') }}" alt="Custom Pet Portrait">
+                <h3>Custom Pet Portrait</h3>
+                <p>Rs. 120.00</p>
+                <button class="quick-shop" data-product="Custom Pet Portrait" data-price="120">Quick Shop</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Icon -->
+    <div class="chat-icon" onclick="toggleChat()">
+        <i class="fas fa-comment-dots"></i>
+        <div class="chat-badge">1</div>
+    </div>
+
+    <!-- Chatbot Pop-up -->
+    <div class="chat-container">
+        <img src="{{ url_for('static', filename='images/bot.jpg') }}" alt="Forma Bot" class="bot-avatar">
+        <div class="chat-popup" id="chatPopup" style="display: none;">
+            <div class="chat-header">
+                <h3>Chat with Forma</h3>
+                <button class="close-btn" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="chat-box"></div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Ask me anything...or write start to begin">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Popup -->
+    <div class="order-confirmation" id="orderConfirmation" style="display: none;">
+        <h3>Order Confirmed!</h3>
+        <p id="orderDetails"></p>
+        <button onclick="closeConfirmation()">Close</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Forma Creations Made by Ayush, Kevin and Ujjwal</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
