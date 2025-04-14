@@ -5,14 +5,16 @@ import os
 import re
 import secrets
 from flask_session import Session
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
 # OpenRouter API setup
-API_KEY = ""
+API_KEY = os.getenv("API_KEY")
 client = openai.OpenAI(
     api_key=API_KEY,
     base_url="https://openrouter.ai/api/v1"
@@ -189,7 +191,7 @@ def chat():
                 else:
                     response = "Oops, something went wrong with your order. Try again or contact support!"
         else:
-
+            # Natural conversation with contextual info requests
             ai_response = client.chat.completions.create(
                 model="google/gemini-2.0-flash-thinking-exp:free",
                 messages=history,
@@ -197,7 +199,7 @@ def chat():
                 temperature=0.3
             ).choices[0].message.content
 
-
+            # Add info requests at natural points
             if "looking for" in user_message or "interested in" in user_message:
                 if not data['preference']:
                     ai_response += " What type of items catch your eye—like jewelry or decor?"
